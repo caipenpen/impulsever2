@@ -38,7 +38,7 @@ def GetMethodByName(method):
 class AttackMethod:
 
     # Constructor
-    def __init__(self, name, duration, threads, target , domainname , attack):
+    def __init__(self, name, duration, threads, target , domainname , attack , sock):
         self.name = name
         self.duration = duration
         self.threads_count = threads
@@ -47,6 +47,7 @@ class AttackMethod:
         self.threads = []
         self.domainname = domainname
         self.attack = attack
+        self.sock = sock
         self.is_running = False
 
     # Enter
@@ -72,7 +73,7 @@ class AttackMethod:
     # Run flooder
     def __RunFlood(self):
         while self.is_running:
-            self.method(self.target,self.domainname,self.attack)
+            self.method(self.target,self.domainname,self.attack,self.sock)
 
     # Start threads
     def __RunThreads(self):

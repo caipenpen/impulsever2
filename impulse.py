@@ -46,6 +46,10 @@ parser.add_argument(
     "--attack", type=str, default='get', metavar="<Attack method>", help="post , get"
 )
 
+parser.add_argument(
+    "--sock", type=str, default='http', metavar="sock", help="http,https,null"
+)
+
 # Get args
 args = parser.parse_args()
 threads = args.threads
@@ -54,6 +58,7 @@ method = str(args.method).upper()
 target = args.target
 domainname = args.domain
 attack = args.attack
+sock = args.sock
 if __name__ == "__main__":
     # Print help
     if not method or not target or not time:
@@ -62,6 +67,6 @@ if __name__ == "__main__":
 
     # Run ddos attack
     with AttackMethod(
-        duration=time, name=method, threads=threads, target=target , domainname=domainname , attack=attack
+        duration=time, name=method, threads=threads, target=target , domainname=domainname , attack=attack , sock=sock
     ) as Flood:
         Flood.Start()
