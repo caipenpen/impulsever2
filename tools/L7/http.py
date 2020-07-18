@@ -77,6 +77,7 @@ def flood(target,domainname,attack,sock):
             else:
                 r = s.post(target,params=payload ,headers=headers, timeout=20 , verify=False)
 
+
     #except requests.exceptions.ConnectTimeout:
         print(f"{Fore.RED}[!] {Fore.MAGENTA}Timed out{Fore.RESET}")
     except Exception as e:
